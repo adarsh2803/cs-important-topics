@@ -1,0 +1,342 @@
+Docker
+------
+Docker is a tool helps us to run our apps in isolated environments
+Container = isolated environment where app runs = running image 
+Docker image = Source Code + DockerFile (Container Setup List of commands) 
+Container dont have any idea of outside process (data security)
+
+Before Containers and Virtual Machines were introduced
+------------------------------------------------------
+App1       	App2
+OS1 		OS2
+Hardware1   Hardware2
+
+Before Containers were introduced but using concept of Virtual Machines
+-----------------------------------------------------------------------
+App1 App2 App3
+OS1  OS2  OS3
+Hardware
+
+After Containers were introduced
+--------------------------------
+C1 C2 C3  .... Cn
+container enginer
+OS 
+Hardware
+
+Commands :-
+docker run <image-name> . Ex- docker run -it ubuntu 
+docker run -p 7080:80 nginix => nginix listen to default port 80 , now it will listen to 7080 port 
+ps aux => to see all process in OS
+docker ps => to see all container (docker process)  running
+docker stop <container-id>
+docker logs <container-id>
+docker images => to see docker images
+
+Kubenetes
+---------
+
+
+docker build -t gtt-order-service-server:1.2.11-SNAPSHOT --build-arg ARTIFACT_ID=gtt-order-service-server -f gtt-order-service-server/docker/Dockerfile .
+
+docker build -t upstox-parent:1.8 --build-arg ARTIFACT_ID=upstox-parent -f upstox-parent/docker/Dockerfile .
+
+
+docker run  -e NODE_ENV=dev -e UPSTOX_EXTERNAL_HTTP_PORT=10002 -e UPSTOX_ADMIN_PORT=10000 -e UPSTOX_INTERNAL_GRPC_PORT=10001 -p 10000:10000 -p 10002:10002 -it gtt-order-service-server:1.2.11-SNAPSHOT
+
+
+
+Margin of safety
+================
+PE of company < 0.5 * avg market PE (10-12) , Price to earning
+Growth = 15-20%
+ROCE = 20%+ , 30-40 % are real mutli baggers
+
+
+Harshit :-
+Robot mugging parrot
+Secret Guardian - he is not chuglibazz -> manvendra had a fight with mradul peet diya hota mradul ne,funny photos dikhayega 
+Never trust him for sharing secrets , like mradul gf , lokesh package , harsh soni marriage
+He is a tester -> 
+He was real snake -> He used to fake out he is not studing and he ask me not reveal to abc manlo
+Big assests he have , proper janani
+Rich he is next ambani the sinhas - 
+He is GM son , Hallo owns entire Bihar
+no 2 star hotel only 5 star , not more than 4 people in cab 
+If he was in kanpur with us , he must have booked helicopter to Ald 
+Real travel enthusiast , thak jaunga vro -> He wants non adventure trip (Risk is everywhere)
+He is backstabber -> He spoiled manali trip , bihar jaunga ghar pe, kanpur he didnt went with us
+kal mutt diya.. andaman trip paise dene me 10k ..waise ameer banta hai .. i trabel by H1 , 5 star only
+he is fraud free time bahut hai .. ladakh trip discuss 5k paise dene ke time south me karunga trip
+october me koi bahana , 2 trip ek month me nhi kr sakta sept me vaishno devi
+GAIL sponsered - 25k phone ke liye milte hai , use ek rupee upar nhi khrch krna pade ex iphone6
+2 lakh trip , 8 lac bonus every quater
+andha black money , onces told 50k rs per day 
+macbook bhi thekdar ne dilaya hai (ss hai)
+have many properties in black money in agra patna crores of properties in seconds (share ss)
+saving money for wife , joru ka gulam , 
+Cheapster for 2nd hand PS5 , kanjoos  for trip , GAIL sponsered , online friend , Biggest actor
+cstar se 3rd hand shoes and watches 
+blr is peanuts for me , aaj tk nhi aaya
+
+Manvendra :-
+He is comparator function
+He is Veer sticker senani
+He is real Rajput -> He faced real kanpur gansta Mradul beaten him several times , you r real rajput
+He is rich -> Rich dad alot of black money He always select top model ,top laptop personal macbook he has , big mansion he has , every weekend he got shahi food from his house , iphone 13 he has
+He is Army officer . He is SSB guy TES entry 
+He have military background -> His uncle is Rear admiral  
+
+
+Patra :-
+Serious Army Lover Aspirant SALA Man 
+Seoul 75k
+Japanese Korean king
+Regard me above - me them in blr then on some weekend 
+Ece influential man - suman son
+saptrishi son - pant , kaustabh son - opposite sleep
+Anime Fan - cartoon dekhta hai bada hogya itna 
+Guard Saab Lover - ece department stories and he said once when he was new in blr 
+he only talked to guards and delivery boys 
+
+Gaurav :-
+we all know end me gaurav gay ko kaam aa jayega aur wo trip pe nhi jayega
+tabhi raat bhar kaam krta hai - din me manager isko nhi chodhta
+once he stole railway toilet mug to use its as coffee mug
+hahah he once told train came and he have to run away in squats position
+jab jata hoga chahta ,khet mei hagne jata hoga subha lota guy
+kya hi sanskar diye hai inko mandir ke baad ke baad daru pine chale gye
+mandir jate waqt raosahab sun raha tah - kya toh choice hai iss gadhe ki
+Gaurav Gay - honey , S in upward direction
+krisha ashar - fraudster meli company me kaam krti hai
+ghotu  lamba kr denge - gaurav ke jaise
+tikki naali ke paani ki - dhakel guy
+ladakh trip pe paisa nhi dene wala - madhav ke rent se kaat lunga - lobhi , miser
+aagya gurgaon ka gevar khane waala
+shekhar related kuch bhi gaali - chamraa , sleeper train me
+Gallo needs khatti lassi ki pichkari
+He wants half biryani
+drinks yellow moot in the name of beer whiskey
+
+
+Full stack people , Action oriented fast paced , ask tough questions and curious to solve problems
+Ability of learn fast , First principle thinking
+Front end - react native
+Back end  - python django , Java , node.js
+web project - React.js
+DB - postgress , mySQL , Redis 
+AWS and serverless architechure
+
+
+Jenny - clear Summit - multiple task 
+David - HotGlue - CRM tool integration
+Gyan - Certa - supply chain modular
+Hassan - Snap EDA - electronic component buy & sell for engineers - ownership talk bw teams & customer
+Diego - Morada Uno - real estate transaction 10x faster , reduce paper work involved for landlords
+Katie , David - JumpCloud - authorization platform both hardware software oriented
+Gaurav - Immuna
+ 
+International Offers :-
+1) Linkedin , Carrers page , arc (ik) , turing 
+2) Keep resume short each exp 2-4 lines roles and techstack used
+3) Big Name in resume will grab attention of company or OpenSource contribution 
+4) Github in top of resume , either contribution in GSOC or your projects used by other people
+5) Show Skills as much as possible , lil bit about achievements/rank in small section
+6) Tip - Have a solid Open src profile and list all the best projects in the resume
+7) Takeaway :- 
+   target right companies who dont care Purchasing power parity , 100k is a humble no.
+   Negotiate Properly - 2x the offer , when approach new company , interview 3-4 companies
+   You can really make this amount of money , When you are really Good at it 
+
+
+Taxation on diff instruments :-
+Equity:- 
+Domestic listed stocks & equity mutual funds :- 
+12 months se phele - 15% , 12 months se zyada - 10% beyond 1 lac profit
+International unlisted stocks & domestic unlisted stocks :-
+24 months se phele - income tax slab , greater than 24 months - 20% indexation
+
+Debt mutual funds & International funds :-
+3 years less - income tax slab , else 20% with indexation
+
+ETF - exchange traded funds
+Index and sectoral ETF - taxation same as equity mutual funds
+Gold and International ETF - Debt mutual funds
+
+Gold - same as Debt mutual fund , soverign Gold bonds - 8 yrs ke baad tax free hai
+REIT - real estate instrument trust
+listed stock - less than 3 yrs - 15% , more than 3 yrs - 10% beyond 1 lac profit
+International fund of fund - Same as Debt mutual funds
+
+
+1. how to contribute in open source
+Ex- Kubernates , CNCF , MLH , github campus expert , GSOC , LFX mentorship , Outreachy take part in all
+
+Open source contribution :-
+gsoc site go / github site (explore section)
+search stack / company
+open that company and go to their open githiub repo
+there is issue tab , try understanding issue and solve it 
+if there is any question , github chat app (gitter) , tag in public on github
+
+cncf cloud native computing fond. -> basically for devops projects
+cncf have repo for mentoring sessions
+Kubernetes client is most welcoming community for begineers
+Kubecape - 
+1. Kubernates basic and Go language basic - Microservices task
+2. Start using Kubescape first see kunal tuts
+3. see the klusters , dashoard , features 
+4. then you are good to go to start contributing
+
+
+
+Learning in public -> Twitter majorly (Kunal Kushwah jinko follow kr raha sabko follow)
+A) Course / learn kr rahe share it in public 
+B) Take part in student open source program  , hackathon , projects share everything
+C) Event/Talk Video -> What you learnt kubernates etc. share that , stateful/stateless
+D) London/Europe startups -> they are not on linkedin , they are on Twitter for connecting
+E) Draft an email and send to people using linkedin/twitter 
+						-> like my interest, project , open source contribution , cloud native
+F) Most important is do open source projects as they also have begineer friendly task and you get to connect with diff people around the world .
+Ex- Kubernates , CNCF , MLH , github campus expert , GSOC , LFX mentorship , Outreachy take part in all
+G) FreeCodeCamp/Youtube is Good for learning new things /
+
+
+
+
+Great SDE 
+----------
+Will , skill , Ownership of work , Regular Feedback
+Understand problem statement , research , get regular feedback (once in month)
+Dont directly ask for solution from senior , do your research
+Communicate with the team - ask from them good questions about them not work
+
+Aarambh Hai Prachand
+Shiv tandav Stotram
+
+Learn
+------
+ssh servers
+kubernates clusters
+stateful/stateless architecture
+Monolith architecture 
+backend vs microservices
+Kubernetes vs normal server , what kubernetes solves
+class path **** Study about it  @ComponentScan
+hadoop
+JeddyServlet Container
+kafka group id random se multiple events gaye restart hone pr , constant se nhi gaye
+liquidbase in Mysql , mysql jpa , mongosb jpa 
+Kite , tradingview , dhan , smallcase , tickertape , screener
+
+OS
+DBMS
+CN
+Kafka
+SpringBoot
+Kubernetes & Docker
+System Design - HLD and LLD
+study about cookies - sent via response headers
+
+Spring batch
+Lucene vs elastic search 
+
+Route/Path + Deadline to do task = then i can do stuff without delay
+
+Go - 18 night
+LLD and HLD - 19th morning and night
+C++ OOPS revise with those videos and my old projects in c++ - 20th - done
+Java and Springboot revise - 21th 
+OS and multithreading Java C++ - 22th - friday
+
+23 th - Saturday
+Resume complete from Preformance Sheet to vignesh + bodv11 anirban comment + mts ka benefit 
+HTML , CSS , JS , Node.js - in 1 video complete
+
+24th - Sunday
+React - complete 14 hrs
+
+19
+9 - 12  = 3 - LLD
+1 - 5   = 4 - LLD
+7 - 10  = 3 - HLD
+11 - 3  = 4 - HLD
+
+C++ 20th
+=========
+void fn1(int &x){} -> parameter by reference -> fast -> dont create a fresh copy
+void fn2(int x){} -> parameter by value -> creates a fresh copy
+
+int a= 10;
+void fun(int x) const {  //const function  -> usage -> when u want to be sure , no member var get changed
+	a = a+ 10 ; //not allowed , member variables not allowed to change
+	x = x+ 10 ; // allowed 
+}
+
+void fun(const int x){ // const keyword before parameter
+	x = x+ 10 ; not allowed
+}
+
+//usage of const_cast in c++ , to duplicate the address of some location which is set as const
+//if some function needs simple int* pointer instead of const pointer
+int main(){
+	int x = 10;   // if you make const int x = 10 ; , then cout<<x ; gives 10 or 20 , illegal to do so
+	const int* ptr = &x;
+	int* val = const_cast<int*>(ptr); // this will work
+	int* val = ptr ; // will not work
+	*val = 20;
+	cout <<x;    //20
+	cout <<*ptr; //20 
+}
+
+//dynamic_cast => it is used to convert child class pointer to parent class pointer and vice versa
+//and when you want to use dynamic cast then parent class should have atleast 1 virtual fun and it should be inherited or ovveride by child class
+
+class A{
+	public:
+	virtual void f(){
+		cout<<"Parent Class";
+	}
+}
+
+class B : public A{
+	public:
+	void f(){
+		cout<<"child class B";
+	}
+}
+
+class C : public A{
+	public:
+	void f(){
+		cout<<"child class C";
+	}
+}
+
+void main(){
+	B b = new B();
+	A* aPtr = dynamic_cast<A*>(&b);
+	B* bPtr = dynamic_cast<B*>(aPtr); //this will work
+	C* cPtr = dynamic_cast<C*>(aPtr); //this will not work
+}
+
+In java , garbage collection happens automatically , c++ me you can manually do it using malloc calloc this is the reason , why c++ is fast 
+Each time , double the size of vector is created at new location and copies all data from old vector , if ele is pushed beyond curr vector size and deletes the prev old vector 
+vector <int> v(1000,0); //to avoid the recopying again , if you know the input size before hand
+
+unique_pointer // if in the entire execution of code , if we want just single copy of object to be used
+class X{}
+
+void main(){
+	unique_ptr<X> ptr = make_unique<X>(contructor);
+	unique_ptr<X> ptr1;
+	ptr1 = ptr; // this is not allowed 
+	ptr1 = std::move(ptr); //this is allowed .. now ptr will point to null and ptr1 have the ref
+}
+
+
+
+
+
+
+

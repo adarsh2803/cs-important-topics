@@ -1,0 +1,37 @@
+JWT - Json Web Token
+It is used for authorization - it is a industry standard specification for secure communication
+It is a way to remeber a manage a session -> like banking site , jab tk login ho aap hi user ho site knows
+
+2 ways to remember a session :-
+================================
+1) Session Token -> 
+when a user authenticates , a session id/token is sent back to user and it is saved in cookies and session id is added to subsequent request is cookies header automatically , that what browser do and on server side , server manages session logs tables of users
+
+Cons - its works fine only with one monolithic server web application , if there are multiples pods/server and a load balancer in bw , then load balancer should remember for each user to which pod request went & subsequent request should go there only (sticky session pattern) .. so scalabilty is a issue
+2nd soln could be instead managing session in each server .. maintain a external redis cache and store sesion data there , but there could be single point of failure of redis  .. then all session data is lost
+
+2) JWT -> Json Web token
+in this approach , session tables are not stored at server and session id is not given to user.. instead it returns the user information itself as the token(JSON Object) which have signature from server that i have verified it . in the subsequent request the client send along with request the whole JSON token , the server isnt saving anything in this approach .. 
+
+JWT have 3 components - header (public), payload (public), signature (encoding algorithm it is mentioned)
+how this signature works :- 
+header and payload 's signature is computed with that secret key which only server have with given cryptographic encoding algorithm and it is compared with signature it sent (3rd part)
+
+Cons - if someones get JWT token , he can access the API .. like in upstox we do with bearer token
+compared to session token , we cant log off and destroy session ids like if someone stole our session id , either we can maintain blacklisted JWT token or wait for JWT token to expire using payload we can set
+Or you can use JWT along with oAuth to fix this issue if someone steals bearerToken
+
+Session Token - reference token , JWT - value token (summary)
+HTTP - stateless protocol means all info is need to be sent in request for that interaction and no state is maintained for subsequent request
+
+JWT is needed when the url response is dynamic and it depends on who the user is -> like is this feature is accessible to this user in market-admin-app or is this webpage should be available 
+for static UI no JWT is needed
+
+There are many ways for authentication , but JWT is only used for authorization (for subsequent req)
+
+OAuth
+-----
+It is also for authorization (and not authentication)
+You are authenticated with 2 services and now both the services want to talk to each other , you give permission , then the 2nd service have authorization token , which it give each time to service 1 to authorize it request .. it is also done by JWT 
+
+   

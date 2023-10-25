@@ -1,0 +1,117 @@
+Low Level System Design
+=======================
+
+SOLID principles
+-----------------
+These are the principle (basic rules - aisa krna chahiye) which should be followed .. so that code is easy to understand (short) and debug + + we can scale system efficiently + Algo is easily extensible for future version and code repition is reduced , if it follow SOLID principle
+
+Types:- 
+1. S - Single Responsibilty Principle
+2. O - Open Closed Principle
+3. L - Liskov Substitution Principle
+4. I - Interface Segregation Principle
+5. D - Dependency Inversion Principle
+
+
+S- Single Responsibilty Principle
+=================================
+Let suppose there are 4 seperate task then make seperate class/module for each task , so that its e2u&d
+If suppose there is an issue in 1 module then just one module needs to be updated. 
+Ex - Problem statement is make Restraunant Management System - 4 basic task 
+placeOrder , prepareOrder , deliveryFood , logistics of raw material .
+
+So naive soln (Fresher)- write code in 1 class , it will work but its !e2u&d
+Better soln -> write logic in 4 seperate class/module , it would then be e2u&d 
+
+
+O - Open Closed Principle
+=========================
+Open to new extension , but closed for modification in class
+Advantage :- Algo is easily extensible for future version and code repition is reduced ,  basically use interface with functions defined in it and based on diff initialization get diff o/p of getArea()
+Example :-
+We have Shape interface & where rectangle , square and circle implements Shape (defined two functions :- getArea() and getPerimeter() ) and let ShapeStat class where 1 global var -> private Shape shape and two methods getArea() and getPerimeter() ..
+So , in above exp ShapStat is closed for modification and u can make as many extension of Shape class
+
+if we had interface with no 2 functions then in ShapStat , you have to update getArea() and getPerimeter() when every new shape is added .. which is non complaint to Open Closed Principle
+
+L - Liskov Substitution Principle
+=================================
+SuperClass should be replaceable with the objects of the subclass .. i.e. subclass should "extend"     (inheritence) the behaviour of superclass without altering its behaviour or correctness of the program.
+if(employee instanceof ContractorEmployee) or object.getClass().getName() , empty function def is used
+
+LSP ex:-
+	abstract Class Shape(){ public abstract void area(); }
+	
+	public static void printArea(Shape shape) {
+        System.out.println("Area: " + shape.area());
+    }
+
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(4, 5);
+        Square square = new Square(4);
+
+        printArea(rectangle); // Output: Area: 20.0
+        printArea(square);    // Output: Area: 16.0
+    }
+
+LSP voilation :-
+1) if i give , perimeter instead of area in square defination , then what getArea() fun was supposed to do is not correct hence it voilates LSP 
+2) if we are not re-using the code and making seperate printAreaRectanlge(Rectangle shape) and printAreaSqure(Square shape) then its also a voilation
+
+I - Interface segregation Principle
+===================================
+Avoid bloated interface with multiple responsibility and it aligns with Single Responsibility pattern
+Class B and Class C , implements Class A .. and suppose if A class have some functions which are not required by Class C but Class B requires all .. then 2 ways to solve this problem :-
+
+1. Naive Soln :- Function which is not required by Class C , return from that function List.of() ,0 , 	 empty function or use default function in interface A
+2. Optimized Acceptable Soln :- Divide Class A into 2 parts as Class A and Class D and
+   let Class B implements A,D and let Class C implements D
+
+D - Dependency Inversion Principle
+==================================
+You can identify voilation of DIP , if instead of interface some class is using Classes as dependency 
+directly and we have to make changes which (we should not) in alot of places like test cases + manager class . 
+
+Use Interface in Junit to mock + if there is multiple class implementing a interface , it would be easier to use any class just by changing reference .. 
+Ex ->  Network interface have 1 fun -> makeCall()
+Network net = new Jio() if in future we want to switch to Airtel internet then just change reference to Network net = new Airtel() , then no need to change even test case 
+interface freeze the contract that why 
+** This is basically Open Closed Principle in SOLID **
+
+
+Design Patterns :-
+===================
+A) Creational design pattern - in which case , what kind of object creation should be used
+1. Factory Pattern
+2. Abstract Factory Pattern
+3. Singleton Pattern
+4. Prototype Pattern
+5. Builder Pattern
+
+B) Structural design pattern - structure of the Class based on the use case
+1. Adapter Pattern
+2. Bridge Pattern
+3. Composite Pattern
+4. Decorator Pattern
+5. Facade Pattern
+6. Flyweight Pattern
+7. Proxy Pattern
+
+C) Behavioural design pattern - this talks about the connection objects would have so as to have loose coupling and ability to extend (Flexibility) 
+1. Chain of Responsibility pattern
+2. Command Pattern
+3. Interpreter Pattern
+4. Iterator Pattern
+5. Mediator Pattern
+6. Memento Pattern
+7. Observer Pattern ** 
+8. State Pattern
+9. Strategy Pattern **
+10. Template Pattern **
+11. Visitor Pattern **
+
+   
+
+
+
+

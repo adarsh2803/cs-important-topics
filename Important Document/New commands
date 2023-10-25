@@ -1,0 +1,132 @@
+New commands
+------------
+redis-server --port 6379 , redis-cli -p 6379
+aws ssm start-session --target i-087dcd4129ab419af  -> for starting session
+cat success_keys.csv | grep SRTRANSFIN -> search all occurance with keyword in vim
+cat success_keys.csv | grep -A 1000 -B 1000 SRTRANSFIN -> har o/p ke 1000 lines
+cat failure_keys.csv | grep NSE_EQ | wc  --> for counting the freq. of "NSE_EQ"
+git fetch origin <branch-name> -> git pull hi hai 
+sh app-archetype.sh or ./app-archetype.sh
+git clone /fetch -> diff 
+mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=password //localhost:9000 
+standard login=admin pass=admin
+tail -100f app.log
+(mkdir , rmdir or rm -rf ) folder_name-> to make and delete a folder
+cp -r createproject.sh ../  -> copy from one folder to another
+(_collector= nga-v2-uat and namespace= market-timing-events ) and ‘Event’ = sumologic
+For folder , we need -r , else for files we dont need -r == recursive
+python3 okta-aws.py -p uat
+node lib/index.js --profile uat ==> go into the folder downloads then aws ke andar
+echo $AWS_PROFILE => to print values value of this key
+http://service-uat.upstox.com/market-timing-service/v1/holidays
+https://market-timing-events-uat-local.uat1.upstox.com/market-timing-events/swagger-ui.html#/   ==> event mood swagger
+http://localhost:11272/market-timing-service/v1/holidays  //server.port=11272
+Swagger Integration - http://localhost:11272/market-timing-service/swagger-ui.html
+localhost:10730/actuator/health
+ps -ef | grep java
+mongosh - terminal
+brew services start mongodb-community@5.0
+Locust -f master.py --master --master-bind-host=127.0.0.1 --master-bind-port=5555
+java -jar ins.jar 'arg1' 'args2' - HOW TO RUN A JAR FILE
+mysql -u basket_orders_user -p --ssl-mode=REQUIRED -h basket-order-service-mysql-uat-local.uat1.upstox.com
+Ports :- 0 (management/admin) , 1 (rpc port) , 2 (external http) , 4 (internal http port)
+kubectl exec -it jomne-proxy-router-server-5cd6c65547-hdnht -- bash
+tail -f state/logs/app.log
+aws-azure-login --profile uat
+mongodb://localhost:27017/file_detl
+
+kafka
+=====
+bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+bin/kafka-topics.sh --create --topic market-events-topic --bootstrap-server localhost:9092
+bin/kafka-console-consumer.sh --topic market-events-topic --from-beginning --bootstrap-server localhost:9092
+
+if there is error while pushing code
+====================================
+git reset --soft HEAD~1
+git commit --amend -> amend the last commit message of merging then issue resolved
+git push -u origin <branch>
+git pull --rebase
+git config pull.rebase true - to rebase whiling pulliing , ** false rakho hamesha to merge **
+git tag -d uat
+git checkout <commit_id>
+
+
+TERMINAL COMMANDS
+=================
+cat names.txt //just it shows content on terminal
+vi names.txt //opens terminal and you edit it too
+git log //to see all history
+rm -rf names.txt //to delete a file 
+git reset commitID --> All above commits removed (soft)
+git stash pop //go to last commit
+git stash clear //to clear stash stack
+git remote add origin link  //to connect local project with remote repo/folder , your own account
+
+ //How to see the remote branches in local
+git branch --all //to see all remove branch
+git checkout development //to checkout remote branch as well
+git checkout -b remote_master //checkout development branch with new name 
+git checkout origin/master //to see state of remote branch
+
+git remote -v //to see origin and upstream repos 
+git remote add upstream link //link of project you forked
+//to push to the master branch of another project / account  
+(git pull = git fetch + git merge)
+git fork ->online from github //to push code to ur remote repo
+
+To see all message consumer from starting in Kafka
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
+    --topic test2 \
+    --from-beginning \
+    --formatter kafka.tools.DefaultMessageFormatter \
+    --property print.key=true \
+    --property print.value=true \
+    --property print.timestamp=true \
+    --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
+    --property value.deserializer=org.apache.kafka.common.serialization.StringDeserializer
+
+
+Infos
+-----
+1. git fetch is similar to git pull but doesn't merge. i.e. it fetches remote updates (refs and objects) but your local stays the same (i.e. origin/master gets updated but master stays the same) .
+
+2. origin/master -> state of branch (its not actual branch)
+origin master -> is actual branch
+
+3. git pull pulls down from a remote and instantly merges.
+
+4. git clone clones a repo.
+
+5. git cherry pick --> merge commits in my branch from another branch
+Old commit to new commits add krte ho  
+
+6. reset / revert --> to delete commit
+   Also checkout a particular file from a particular commit **	
+
+7. Class 's name --> always first letter capital then camelcase
+Rest all name package , variable -> first small letter then camelcase
+branch name --> kebab case feature/ENG-50479-transform-redis-data
+Objects.nonNull(exTimestamp) **
+
+8. State folder ke andar saare logs mil jaate hai , for each project if you have used @Sl4j
+
+
+Always add these 3 annotations on the object
+============================================
+@Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+
+
+
+
+
+
+
+
+
+
+
+ 

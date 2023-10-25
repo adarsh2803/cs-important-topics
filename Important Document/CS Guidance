@@ -1,0 +1,172 @@
+CS Guidance
+============
+
+search like this :- Finance (optional) + Remote + Good Compensation + European Startup   + Funding >=10M
+Europen startups that pay 100k , startups that funded 10M$ ,Saas company that are fully remote .. 
+then go to linkedin find people and text them .. if u like resume , can reach out to manager for post in your team , 100 peoples honge company me , ask for refferal or can you reach out to manager  
+
+Always First mail .. 
+Hi Tanya , I am from NIT Allahabad .. I am a tech guy from Finance Domain .. nice connecting with you .
+KSR + tell skills you have .. in 2nd mail .. gdrive Link of resume 
+
+FollowUp + Dm on Twitter (coz less followers than linkedin + they always reply)
+Send Your request to company from multiple routes - linkedin , twitter , carrers portal , carrer email , personal email + 9-11AM on weekdays
+
+GSOC
+=====
+@here @admin new feature idea i have , this is not documented can i pick this up
+New feature ya bug solve krna hai - google doc share this is my approach .. not everytime
+Document , bugs & new feature develop , testing and reporting issues , mainter (review work of other ) 
+
+GSOC -> 4.9 lac rs + learning + connections + GSOC in resume is like google brand (contribution expert)
+2 month learning stack - sept & oct 
+choose 3 orgs which came last year  - backout or dont get selected
+From Nov starting to Dec -   start solving small problems in that 3 orgs , hello maintainers will know you 
+January/ Feb -> make max contribution in 1 or 2 firms , pick bigger issues + they will assign you issues coz they know you , if someone has better came move to diff project
+March - 2/3 polished proposal in 2/3 orgs or in 1 org only many proposals
+
+Dont - DM them again and again , unless its more than a week to you reply , dont ask too many questions 
+Dont be only for GSOC , try to be a good contributor , when it start you can start then
+its mini internship on how to apply to remote jobs via open source 
+
+Program Organisation GSOC -> Company click -> Contributor Guidance -> github project link -> issues -> select lanuage , labels (bug , good first issue, enhancement) -> see if there is no assignee (forks count is good)
+
+
+each company takes 1 to 20 students each year for GSOC 
+find company which satisfy these 3 things - 2 company main + fallback , if main company doesn't come
+apna interest in tech 
+active through out the year and come almost each year
+student count each year is good
+
+January end tk -> 3/4 PR in these both company , know mentors and make good relationship with them
+Feb mei list of companies selected for gsoc will come ->
+if your company comes - good do more contribution as much as possible and make proposal
+if your company doesn't come -find another small company in same domain show them your old open source work and make proposal for it
+March -> contributor proposal period begins 
+
+How to start connecting with mentors :-
+go to github , main page of company -> email hoga and right side people get email from their profile
+ask resources to learn , good first issues , understand codebase and project installation , best time to mail is early morning -> 8 to 11 am 
+
+GSOC is for people who are self sufficient .. learn stack after that build products on own ,this is the way
+Dont ask for solution from others , be yourself knowledgable ki other asks you 
+
+career :-
+1) ai21.com  - 155M
+FrontEnd - React with Babel , NPM as frontend builds pipelines , unit test - Jest
+BackEnd -  SpringMVC , NodeJs
+Devops - AWS , message queues , Docker , lambda function
+
+2) redwood materials - 1B
+Backend - AWS , Apis , Docket , Git , Java , debugging, monitoring, alerting 
+
+3) Antler - 82M
+Backend - NodeJS , MySQL , ORMs (TypeOrm) , AWS , GCP
+Frontend - React and TypeScript , CI/CD usual process
+
+4) DevRev - tanya rajhans
+Backend - java , microservices , scalable  ,AWS Lambda, SQS, Dynamodb , Docker
+Frontend - TypeScript, React
+System Design interview hua 
+
+
+
+Upstox Achievements :-
+
+market-timing-service
+=====================
+usage :- 
+1) if today is holiday or not -> exchange/segments open hai ke nhi
+so , agar week days hai but aaj holiday hai , so job run hoti saari , file nhi milti , code fat ta, faltu ka load bhadhta server pr , so using mts , you can check whether exchange is open or not  
+Impact :- like in my team .. 119 jobs were there , so if they dont check whether segment is open or not today , so much extra load from just 1 team on server , so there were such major 11 team in org .. so faultu ka so much extra load on server almost all team where using my service .. so this service helped in cost cuttting in the entire org .. by this org saved last year .. 
+
+2) market open hai ke nhi via kafka events :-
+earlier what used to happen , manually they set the market open timing like 9:15 to 15:30  market timing either in the central config DB or in application config in the server , so after that they need to restart the server .. so , somtimes what happen these market timing changes on indian festivals like diwali .. so this was manual labour .. that you have to change the value of market opening and closing timing accross so many service .. so when we introduced kafka event , manual intervention hatt gya .. so now , we used to receive market open and close event from exchange itself , we used to consume it via our 1 adapter and to this adapter all other service listens or consumes the event 
+
+Learning :- HLD , LLD , Rest APIs with validations , kafka , Locust client for load testing to QA team , how to upload and download from Amazon s3
+
+bod legacy service migration 
+=============================
+For frontend team , python mei ek job likhi thi jo old python bod_service se data fetch krta tha .. deprecate that and write that job using java and get source data from java code ..
+Challanging :- 
+1) The bod had a particular complex structure , like exchange , then segments , then assetToken , then expiry then instruments values in seperate line . Also old documentation was there but they followed diff naming convention , so figured it out with new datas what that fields are exactly .
+2) Making Comparator - to compare the old bod_job to new_bod job and list out the diff in bw them
+
+Learning :- how to remove legacy jobs how to think critically , Using Rest apis in service to comparison 
+
+file-detl - spring batch
+=========================
+Learnt :- Spring batch and how to Use spring batch to make processing of file or jobs much faster with multiple threads , write many jobs .. Bod_V11 , Suspended , developed instrument-file-difference-job
+
+
+market-data-admin-ui - FrontEnd 
+====================
+1) Developed a ui along with a teammate for monitor so many jobs and service running .. even though we have grafana , but it is not a one stop solution .. from there you can enable disable and run jobs and can check whether api is not working .. we have incorporated important fetch APIs and admin APIS in UI 
+
+Service migration from ngav1 (EC2) to ngav2 (kubernetes)
+========================================================
+First checked the necessary configs needed like DockerFile and tested the service on UAT 
+then do the Locust load test in QA env , made the locust client and handed it to QA team .
+Example :- gtt-order-service , order-triggering-service
+
+market-data-api-service and instrument-service
+==============================================
+Developed various Rest and Rpc APIs for dynamic and static data for CRUD operation for diff services .
+Admin Proto is separate and Used JWT.io based on the group and role assigned to the user 
+instrument-service-lib :-
+Learning :- how to make library module so that they load the data in their service and dont call rpc and rest apis
+will take .. artifact id , version and import in their service .. mostly used for static data which loads once in a day .. added kafka events here in case .. if job fails the other service get to know and download the s3 file in their services
+
+Technical SKills :-
+====================
+Language - C++ , C , Java , Javascript , HTML , CSS
+Framework - SpringBoot , React.Js , Node.js
+DataBase - MySQL , MongoDB , Redis , SQL , NoSQL 
+Messaging Queueing System - Kafka 
+Tools :- Git , BitBucket , Github , Sumologic , Grafana , Locust Client , Kuberenetes(k8) , SonarQube , Spring Security (jwt.io) , Swagger API , Docker , Linux commands , Google Proto , AWS S3 , Maven , CORS , Mockito Junit Test cases , PostMan , BloomRPC , Vscode , intelliJ
+
+Interests:-
+============
+SOLID principles , Design Patterns , System Design , LLD , HLD , OOPs , Operating System , DBMS , DSA 
+Full form of all these
+anitasharma is godwoman i  ma curi0sity to seaRCH GOD
+
+
+adarsh2803@gmail.com
++91-9027478141
+107 , Maruti city , near all saints school , kaharai mod 
+https://www.linkedin.com/in/adarsh2803/
+https://github.com/adarsh2803
+
+If it is remote work .. i have no issue , else you have to provide me a future sponsorship but i am willing to relocate so no issue with that .. have a look at my resume , i have worked in a startup and learnt many skills . I think i will be a valuable asset to you 
+
+Hi ,I applied in your company for below role , can you refer me directly to your manager , i am attaching my resume as well
+
+Roles :- https://jobs.lever.co/improbable/8e24781b-ab52-4f28-bdc9-bc9deed7f774
+
+Resume :- https://drive.google.com/file/d/17u57AxHN6Eo7li2pz3keYJRjBJaXTVp4/view?usp=share_link
+
+10 company in the morning and 10 in the evening
+AngelList (well found) ** ,remoteOK , Linkedin** , indeed , instahyre , Level.fyi 
+CrunchBase and TechCrunch se startups nikalo, carrer page + linkedin se people section ko DM ya find
+founder / EM / seniors SDEs on twitter then unse interview mang
+Google - Company that got funding of 10 Million dollars hire remotely , UK , Australia , USA
+
+Email ka part :- 3 parts - Short  + add resume as well
+Receiver name + self intro i am adarsh , with 2 year of exp in Full Stack Dev
+I reached out to you regarding refferal in your company + Skill set 
+I am really interest to join your company for unique problem solving + like KSR initiative
+
+Email nikalo logon ki (tagdi company) + carrer page ka email company pr email resume with template
+and after 1 week again message .. hey , i am still waiting for your reply , i think you missed it .. can you have a look at my resume and previous messsage once .. Always FollowUp ** 
+
+Interesting subject line .. see photo
+You are where .. where i want to be - Personalize - Para 1
+
+
+Overview
+LLD - Creational , Behavioural , Structural (24) - design pattern
+HLD - (25,26) - fast fast
+Docker , Spring Batch , Spring Security - 27 
+JS and React interview question - 28
+Java , springboot - 29 interview question

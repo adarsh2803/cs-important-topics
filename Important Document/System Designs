@@ -1,0 +1,165 @@
+System Designs
+==============
+System design break down into 2 components :-
+HLD - load balancer , kafka , class kaise interact kregi .. 10000 ft view .. upar upar se what are the Classes/Component(kafka) and how they will interacting 
+LLD - how each class will be implemented , input class kya hoga , output class etc , service layer .. Detailed break down of class .. ie functions and how u will implement it , try catch exception kya kya
+
+
+3 key metrics for comparsion in System Design:-
+================================================
+Explain from bank example . 
+
+1) Performance - site reload hone me 10 min le rahi h
+2) Concurrency - site's server cannot handle 1000 user at a time
+
+3) Data management - Sensitive data - cannot be lost/stolen at any cost - 1000 users ka account balance delete hogya .. then it will be a blunder for the bank .. people will burn the bank then , Insensitive data - oky and from youtube example perspective .. how to handle 20TB data every and new user putting videos
+
+
+Pre-requsites of LLDs in System Designs
+=======================================
+1) OOPS - PACE.IO 
+2) SOLID - correct way to use OOPS - correct ,well isolated(encapsulation) ,easy to understand
+
+3) Design Patterns -It is extension of OOPS - LLDs - its a comman vocab bw programmer - in less words express more . Ex - like i will use a factory pattern to make a object .. so in less words express more .It is expected from you to code implement the solution of question system design in under 40 mins round
+
+4) Clean code in round - name convention of class/functions/variables , size of class , unit test case possible  ,  aur interview round mei hi refactoring** (like function grouping) bhi krdi (toh bonus points milte isske)
+
+
+Pre-requsites of HLDs in System Designs
+=======================================
+2 components in HLD :- Bookmyshow ex
+1) functional requirements - features that u will give - Search movies , Book tickets
+2) non functional requirements - this are basic requirement , agar system hai toh ye toh honi hi chahiye like availabilty (everytime site is up) and scalability (usually 500 user ka traffic handle krta hai service , if karan johar movie aayi .. aur 5000 user aaye toh kya scale ho jayegi service , baithegi nhi na service ??) , other factor security , performance
+
+Pre-requisite of Functional Requirements :-
+1) Restful API design - /movies , /movie/{}/city/{}
+2) API error handling - fail hone pr kya output dega , like wrong input .. we have done it using validation
+3) Data modeling - SQL DB/RDBMS - ER diagram modelling , No-SQL DB - entity modelling  
+4) Data Query - fetch all movies in that particular city
+5) HTTP protocols - Session , cookies , Status code , header kya h , GET POST ke ilawa kya hota 
+
+Any feature that you will make will fall in CRUD Resource category (think about it) =Functional Requirements
+
+Pre-requisite of Non-Functional Requirements :-
+1) Load Balancing 
+2) Consistent Hashing - adv version of load balancing
+3) Sharding - storing 5000TB data into 50 DB of 100TB each
+4) Data Backup / Restore - Bank data ex - all user bank balance is 0 , how to recover it
+5) security - apis ko JWT se secure , Authentication , Authorization , access control , DDOS attack protection (rate limiting is the concept to protect service from DDOS attack)
+6) Caching - service layer pr maps , Cloud flare level pr , open apis , TTL concept in api
+7) Monitoring and alerting - logs thodi check kroge .. if api/service is down to check why it happened + if ram or disk load is increased to 90% .. then alert send kro .. why it happened .. waise scaling honi chahiye , system should be self sufficient to automatically increase pod count if needed
+8) Continous deployment - without downtime of service , how to deploy it 
+9) how HTTPS is diff from HTTP - learn about Automated certificate management
+10) Testing before deployment - unit test , load testing , integration test
+11) Upgrading and Patching of servers -  Jis server/cloud pr tumhara server deployed hai , usko upgrade kaise kroge ??
+12) Metric and analysis - shoes ad on google search .. it will show up on Youtube then .. how it works
+13) Queing system - asynchronous messaging systems hai wo , Kafka , Rabbit MQ
+14) DNS - Domain name system
+
+Basic Root Problems in system design:-
+1) Load Balancing
+2) API rate limiter
+3) Distributed storage - server , DB , cache - how CAP theorem works
+4) Replication & Redundancy 
+5) Timeline generation
+6) Web crawler - to search
+7) Async messaging - Queing 
+
+Standard Questions in system design :-
+1) PasteBin - TinyURL - functional requirements km hai , non functional requirements zyada h ..basic problem
+2) Streaming Sites - Video/Audio - Neflix , spotify , youtube
+3) E-commerece - bechne wali site - Amazon,flipkart
+4) Seach Application with type ahead suggestion - google search or custom search in your own site
+5) Recommendation system - youtube , amazon side bars
+6) Booking application system - bookmyshow , car parking , train booking
+7) QNA sites - reddit /quora .. similar to social media to post ques ans with less features 
+8) Social media sites - fb , insta , chatting site
+9) Design payment gateways - distributed transactions
+10) Design Uber
+11) Design Google Drive / DropBox
+
+
+Load balancing
+==============
+What is load - request , each request takes memory RAM by using variable , list iteration , search 
+ALB - application LB
+
+1) Vertical scaling - increase CPU size from 4 core to 8 core , 4 gb to 8 gb , 500 gb to 1 TB .. commodity computers 4 gb, 8 gb wale are cheap , as you increase hardware capability they are expensive .. if 256 gb ram is required how u will do it + downtime issue as there is only 1 system to handle it + cost is high
+
+2) Horizontal Scaling - use multiple server(computer) and uses loader balancer . Load balancer will see which server have resources and will handle load(request) to that one + downtime is less + cost is less
+
+Load Balancing Algorithms :- you need to tell the strategy to the load balancer
+1) Random - s1,s2,s3 jo random mile uspe bhej do
+2) Round Robin - ek ek krke sabpe request bhejo in sequence
+3) Least Busy - jispe sabse kam load hai , uspe bhejo
+4) Sticky session - in case of using sessionId + cookies .. ie your cart data in on server1 RAM then , server2 pr request bhejoge toh data lose ho jayega , so load balancer will remember src user IP and Dest server IP
+5) Layer 4 LB - Network Layer - dont open whole request - just read SIP , DIP , port no. and then decide where to route the load/request .. not in use now , this load balancer was hardware based .. manually u need to config the LB
+6) Layer 7 LB - Application layer - software based & download & run , can read whole request and then decide where to route the request -> ex nginx 
+
+Load Balancing Configuration :- 
+Active Passive - 2 LB , 1 active , 1 passive standby mode me .. passive wala heartbeat check krta rehga active ki .. if active LB crashes , 2nd passive wala kuch time lega load hone me then will route the req 
+Active Active - 2 LB , never face a downtime .. ek crash hua dusra hai .. DNS 2nd ko request bhej dega
+
+Benefits of load balancer :-
+1) healthcheck  - checks heart beat of server it do automatically 
+2) Overload - nhi hone dega server ko
+3) Single Point of failure avoid krta hai - as multiple server hai .. koi crash hua .. baki 2 pe req jayegi
+4) SSL termination - request goes in HTTPS format which is encrypted whereas HTTP is plain text and encrption is CPU intesive , so if load balancer decrepts the HTTPS request .. then internally server can have HTTP request and servers would be more fast 
+(we can do decryption at server level but it will make server slower and it is reptitive task we can isolate it + HTTP once reached a private Data centre toh koi issue nhi HTTP ke sang wahan req ghume toh)
+
+Problems with Load Balancer :-
+1) Single point of failure - if there is only 1 load balancer .. if introduce 2 active active config wale load balancer .. then this is sorted
+2) increase in complexity - phele sirf server ko monitor krna tha .. ab load balancer wo bhi 2
+3) Performance Bottleneck - agar bahut zyada req hai 1M/min .. then load balancer bhi increase krne honge
+
+
+
+CAP Theorem 
+===========
+C - Consitency - data should give consistent results , even if 1 server is updated then 
+A - Availabiltity - servers are available to receive loads
+P - Partition tolerance - Partition of 1 server into 2 or more servers to distribute load
+In CAP theorem , P is mandatory
+
+Cap theorem ye kehta hai .. in 3 feature mei se aap sirf koi 2 ko hi ek sang achieve kr sakte ho , while making a distributed system (cache , DB , server)
+
+Types possible :-
+1) CA system - no partition is there .. then agar WRITE req kiya kisine 450 rs ka product to 500rs .. then if GET req comes , it will show 500rs
+2) CP system - 2 partitons hai .. if 1 server pe write hua cache ke andar , then kafka event ne btaya dusre pod ko ki server update hua .. then server 2 should not accept GET req for that x millis
+3) AP system - agar consistent nhi hai .. toh always available rahega server
+
+Availabilty no. 
+--------------
+99.99 % , 99.9 % ,total year ke min ka itna % available hoga ..baaki min unavaiable AWS , GCP , Azure
+
+1) Series connection me server connected hai .. ie 2nd depends on 1st and 3rd depends on 2nd . In series , total Availability = Av(A) * Av(B) * Av(C) = 99.9 * 99.9 * 99.9 = 99.7% always decrease
+
+2) Parallel connection me server connected hai .. but they works independently with each other . Here Availability increases = TA = 1 - ( (1- Av(A))*(1- Av(B)*(1-Av(C)) ) ) = its always increase avail.
+
+Types of Consistent
+1. Weak Consistency = Write kiya , pr read galat hua = phone call
+2. Eventual Consistent = Thodi der me har jagah same count show = Youtube Fb Videos views likes 
+3. Strongly Consistent = Banking system .. account balance in reciever and spender account
+
+Ways to achieve Availability
+1. Failover - Active Passive , Active Active Load balancer config
+2. Replication - (Main in sharding topic) - Master node ( Write ) and slave node ( Read ) , slave nodes get in sync with master frequently . Master Slave , Master Master .. 2 types
+
+How to solve any problem System Design
+=======================================
+1) Dynamic Programming approach = Recursion + Memoization 
+Recursion = Break bigger into smaller sub problem = think input , process , output kya hoga for each
+Memoization = (optimize the code) Store output of sub-problem to make bigger problem fast
+
+2) Always remember - try to reduce dependency on other systems .. as it a series connection and the total availability of the system decreases . 
+
+
+
+
+
+
+
+
+
+
+
